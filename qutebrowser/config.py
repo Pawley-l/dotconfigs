@@ -119,9 +119,9 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-# Custom Stuff
+# video website bindings
 config.bind('M', 'hint links spawn mpv {hint-url}')
-
+config.bind('D', 'hint links spawn youtube-dl {hint-url}')
 
 
 
