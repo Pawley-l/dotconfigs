@@ -10,6 +10,8 @@ call vundle#begin()
 	Plugin 'morhetz/gruvbox'
 	Plugin 'vim-airline/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
+	Plugin 'ycm-core/YouCompleteMe'	
+
 
 call vundle#end()   
 filetype plugin indent on
