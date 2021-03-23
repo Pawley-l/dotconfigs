@@ -11,6 +11,8 @@ call vundle#begin()
     Plugin 'mbbill/undotree'
 	Plugin 'vim-airline/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'	
+    Plugin 'rust-lang/rust.vim'
+    Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()   
 filetype plugin indent on
@@ -21,6 +23,7 @@ syntax on
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
+set omnifunc=syntaccomplete#Complete
 set smartindent
 set noswapfile
 set nobackup
@@ -58,13 +61,37 @@ command! MakeTags !ctags -R .
 " ^x^f filenames
 " ^x^] tags
 " ^n all
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
 " Colours
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 
 " Snippets
-nnoremap ,html :-1read $HOME/.config/vim-snippets/skeleton.html<CR>2jwf>a
-nnoremap ,cmain :-1read $HOME/config/vim-snippets/skeleton.c<CR>
+inoremap <leader><leader> <esc>/<++><enter>"_c4l
+nnoremap ,snippet :-1read $HOME/.config/vim-snippets/skeleton.snippet.vim<CR>i
+autocmd FileType html nnoremap ,html :-1read $HOME/.config/vim-snippets/skeleton.html<CR>i
+
+autocmd FileType c nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i
+autocmd FileType c nnoremap ,include :-read $HOME/.config/vim-snippets/part.include.c<CR>i
+
+autocmd FileType java nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.java<CR>i
+
+" Window Manipulation
+nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+
+" Quick compile
+noremap <f6> <esc>:w<enter>!g++ -std=c++11 %<enter>
 
 " Airline 
 let g:airline_theme='wombat'
