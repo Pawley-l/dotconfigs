@@ -1,38 +1,70 @@
 " Plugins 
 set nocompatible
-filetype off
+filetype plugin on
 
 set rtp+=~/.config/vim/bundle/Vundle.vim
 call vundle#begin()
 
 	Plugin 'VundleVim/Vundle.vim'
-	Plugin 'preservim/nerdtree'	
 	Plugin 'morhetz/gruvbox'
+    Plugin 'lyuts/vim-rtags'
+    Plugin 'mbbill/undotree'
 	Plugin 'vim-airline/vim-airline'
-	Plugin 'vim-airline/vim-airline-themes'
-	Plugin 'ycm-core/YouCompleteMe'	
-
+	Plugin 'vim-airline/vim-airline-themes'	
 
 call vundle#end()   
 filetype plugin indent on
 
 " Settings
+syntax on
+
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
 set number
 set ruler
+set nowrap
+set nu
+
+set colorcolumn=80
 
 let mapleader = "\<Space>"
 
+" File Browser
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
 
+" File finding
+set path+=**
+set wildmenu
+
+" Tags
+command! MakeTags !ctags -R .
+
+" ^] jump to tag
+" ^t jump back
+
+" Basic autocomplete
+" ^x^n file only
+" ^x^f filenames
+" ^x^] tags
+" ^n all
 " Colours
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
-nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
 
-nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+" Snippets
+nnoremap ,html :-1read $HOME/.config/vim-snippets/skeleton.html<CR>2jwf>a
+nnoremap ,cmain :-1read $HOME/config/vim-snippets/skeleton.c<CR>
 
 " Airline 
 let g:airline_theme='wombat'
@@ -40,24 +72,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-
-
-" Tree View
-
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" autocmd VimEnter * NERDTree " Auto Open 
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-autocmd BufWinEnter * silent NERDTreeMirror
-
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Tabs
 noremap <leader>1 1gt
@@ -71,7 +85,8 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-Left> :tabnext<CR>
+nnoremap <C-Right> :tabprev<CR>
 nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>k :tabclose<CR>
 
