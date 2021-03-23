@@ -22,8 +22,8 @@ config.bind('V', 'spawn streamlink --player-no-close --player mpv {url} best')
 # Matches
 
 # Disable javascript on video pages, use ctrl+v for watching
-with config.pattern('*.youtube.com/watch?v=*') as p:
-    p.content.javascript.enabled = False
+#with config.pattern('*.youtube.com/watch?v=*') as p:
+#    p.content.javascript.enabled = False
 
 # Colours
 c.colors.tabs.even.bg = 'grey'

@@ -76,20 +76,43 @@ autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 
 " Snippets
-inoremap <leader><leader> <esc>/<++><enter>"_c4l
+" Common langauge features - map to least characters as possible
+" Frameworks - initials of the framework + what it does, full word
+inoremap <leader>j <esc>/<++><enter>"_c4l
 nnoremap ,snippet :-1read $HOME/.config/vim-snippets/part.snippet.vim<CR>i
 autocmd FileType html nnoremap ,html :-1read $HOME/.config/vim-snippets/skeleton.html<CR>i
 
-autocmd FileType c nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i
-autocmd FileType c nnoremap ,include :-read $HOME/.config/vim-snippets/part.include.c<CR>i
+" c
+autocmd FileType c nnoremap ,ma :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i
+autocmd FileType c nnoremap ,inc :-read $HOME/.config/vim-snippets/part.include.c<CR>i
+autocmd FileType c nnoremap ,func :-1read $HOME/.config/vim-snippets/part.function.c<CR>i
+autocmd FileType c nnoremap ,if :-1read $HOME/.config/vim-snippets/part.if.c<CR>i
+autocmd FileType c nnoremap ,wh :-1read $HOME/.config/vim-snippets/part.while.c<CR>i
 
-autocmd FileType cpp nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i 
-autocmd FileType h nnoremap ,include :-1read $HOME/.config/vim-snippets/part.include.c<CR>i
+" cpp
+autocmd FileType cpp nnoremap ,ma :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i 
+autocmd FileType cpp nnoremap ,cls :-1read $HOME/.config/vim-snippets/part.class.cpp<CR>i
+autocmd FileType cpp nnoremap ,func :-1read $HOME/.config/vim-snippets/part.function.c<CR>i
+autocmd FileType cpp nnoremap ,if :-1read $HOME/.config/vim-snippets/part.if.c<CR>i
+autocmd FileType cpp nnoremap ,wh :-1read $HOME/.config/vim-snippets/part.while.c<CR>i
+autocmd FileType cpp nnoremap ,fe :-1read $HOME/.config/vim-snippets/part.foreach.cpp<CR>i
 
-autocmd FileType java nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.java<CR>i
+" h, hpp
+autocmd FileType h nnoremap ,inc :-1read $HOME/.config/vim-snippets/part.include.c<CR>i
+autocmd FileType h nnoremap ,gu :-1read $HOME/.config/vim-snippets/skeleton.header_guards.c<CR>i
+autocmd FileType h nnoremap ,cls :-1read $HOME/.config/vim-snippets/part.class.h<CR>i
+
+" java
+autocmd FileType java nnoremap ,ma :-1read $HOME/.config/vim-snippets/skeleton.main.java<CR>i
 autocmd FileType java nnoremap ,sbcontroller :-1read $HOME/.config/vim-snippets/skeleton.springboot-controller.java<CR>i
 autocmd FileType java nnoremap ,sbmain :-1read $HOME/.config/vim-snippets/skeleton.springboot-main.java<CR>i
 autocmd FileType java nnoremap ,sbmodel :-1read $HOME/.config/vim-snippets/skeleton.springboot-model.java<CR>i
+
+" rust
+" python
+" go
+" ruby
+" sass, css
 
 
 " Window Manipulation
