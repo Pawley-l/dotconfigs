@@ -15,7 +15,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # video website bindings
-config.bind('M', 'hint links spawn streamlink --player-no-close --player mpv {hint-url} best')
+config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind('D', 'hint links spawn bash -c "echo {hint-url} >> ~/.youtube-dl-watchlist.txt"')
 config.bind('V', 'spawn streamlink --player-no-close --player mpv {url} best')
 

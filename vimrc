@@ -77,13 +77,20 @@ set background=dark
 
 " Snippets
 inoremap <leader><leader> <esc>/<++><enter>"_c4l
-nnoremap ,snippet :-1read $HOME/.config/vim-snippets/skeleton.snippet.vim<CR>i
+nnoremap ,snippet :-1read $HOME/.config/vim-snippets/part.snippet.vim<CR>i
 autocmd FileType html nnoremap ,html :-1read $HOME/.config/vim-snippets/skeleton.html<CR>i
 
 autocmd FileType c nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i
 autocmd FileType c nnoremap ,include :-read $HOME/.config/vim-snippets/part.include.c<CR>i
 
+autocmd FileType cpp nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.c<CR>i 
+autocmd FileType h nnoremap ,include :-1read $HOME/.config/vim-snippets/part.include.c<CR>i
+
 autocmd FileType java nnoremap ,main :-1read $HOME/.config/vim-snippets/skeleton.main.java<CR>i
+autocmd FileType java nnoremap ,sbcontroller :-1read $HOME/.config/vim-snippets/skeleton.springboot-controller.java<CR>i
+autocmd FileType java nnoremap ,sbmain :-1read $HOME/.config/vim-snippets/skeleton.springboot-main.java<CR>i
+autocmd FileType java nnoremap ,sbmodel :-1read $HOME/.config/vim-snippets/skeleton.springboot-model.java<CR>i
+
 
 " Window Manipulation
 nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
