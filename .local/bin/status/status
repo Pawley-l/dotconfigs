@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+   xsetroot -name "$( ~/.config/scripts/status/time )"
+   sleep 1m    # Update time every minute
+done &

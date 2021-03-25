@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# to be used with qutebrowser
+# asks if video should be streamed now, added to watchlist or downloaded now 
+
+URL=$1
+CHOICE=$(printf "%s\n" "stream" "download" "watchlist" | dmenu -i -l 50 -p "Video action: " )
+
+if [ $CHOICE == "stream" ]; then
+    notify-send "Streaming using mpv"
+    streamlink -p mpv $URL best
+fi
+
+if [ $CHOICE == "download" ]; then
+    notify-send "Downloading Video"
+    youtube-dl $URL
+    notify-send "Video finished Downloading"
+fi
+
+if [ $CHOICE == "watchlist" ]; then
+    notify-send "Video added to Watchlist"
+    echo $URL >> ~/.youtube-dl-watchlist.txt
+fi

@@ -14,10 +14,13 @@ config.set('content.javascript.enabled', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-# video website bindings
-config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('D', 'hint links spawn bash -c "echo {hint-url} >> ~/.youtube-dl-watchlist.txt"')
-config.bind('V', 'spawn streamlink --player-no-close --player mpv {url} best')
+config.set('colors.webpage.darkmode.enabled',True)
+
+# Script bindings
+config.bind('v', 'hint links spawn ~/.local/bin/video_watch {hint-url}')
+config.bind('V',            'spawn ~/.local/bin/video_watch {url}')
+
+
 
 # Matches
 

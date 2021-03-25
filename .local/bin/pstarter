@@ -1,23 +1,24 @@
 #!/bin/sh
 
 # Script to speed up the process of starting a new project
-
-LOCATION=$HOME"/Projects/"$2
+NAME=$(dialog --title "Project" --inputbox "name" 8 40)
+PROJECTS=$(printf "%s\n" "cpp" "java" "go" "bash" "rust"| dmenu -i -l 20)
+LOCATION=$HOME"/.projects/"$1
 
 # Break if nothing
-if [ $# -le 1 ]; then
+if [ $# -le 0 ]; then
     echo "Not enough paramaters!"
     exit 1
 fi
 
 # Create a cpp project
-if [ $1 == "cpp" ]; then
+if [ $TYPE == "cpp" ]; then
     mkdir -p $LOCATION
     mkdir -p $LOCATION"/src"
     mkdir -p $LOCATION"/include"
 
-    cp $HOME/.config/vim-snippets/skeleton.main.cmake $LOCATION/CmakeLists.txt
-    cp $HOME/.config/vim-snippets/skeleton.main.c $LOCATION/src/main.cpp
+    cp $HOME/.snippets/skeleton.main.cmake $LOCATION/CMakeLists.txt
+    cp $HOME/.snippets/skeleton.main.c $LOCATION/src/main.cpp
 fi
 
 # Create a Python Project
@@ -33,7 +34,7 @@ fi
 # Create a Go Project
 
 # Create a Script
-if [ $1 == "script" ]; then
+if [ $TYPE == "script" ]; then
     LOCATION=$HOME/.config/scripts
     touch $LOCATION/$2
     echo '#!/bin/sh' >> $LOCATION/$2

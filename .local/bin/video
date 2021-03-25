@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Script for easily selecting a youtube video and playing it
+
+CHANNEL=$(ls $HOME/Videos/yt/ | dmenu -i -l 20)
+
+VIDEO=$(ls "$HOME/Videos/yt/$CHANNEL/" | dmenu -i -l 20)
+
+if [[ -n $VIDEO ]]; then
+    notift-send "Starting $VIDEO by $CHANNEL"
+    mpv "$HOME/Videos/yt/$CHANNEL/$VIDEO"
+fi

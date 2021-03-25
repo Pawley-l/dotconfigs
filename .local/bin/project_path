@@ -1,0 +1,4 @@
+#!/bin/sh
+
+DIR="$HOME/.projects/$(ls ~/.projects | dmenu -i -l 20i)/"
+cd $DIR
