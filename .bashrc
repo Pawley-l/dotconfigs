@@ -9,7 +9,7 @@ alias dv="cd ~/.config/vimrc"
 alias scr="cd ~/.config/scripts"
 alias pack="cd ~/.packages"
 alias web="cd ~/.public"
-alias proj="source project_path"
+alias cj="source shortcut"
 
 # bash commands
 alias ls="ls --color=auto"
@@ -22,6 +22,6 @@ alias rm="rm -i"
 
 # macros
 
-
+export SCRIPTS_DIR=~/.config/scripts
 export PATH=$PATH:~/.local/bin
 

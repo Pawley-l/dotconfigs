@@ -1,0 +1,4 @@
+#!/bin/sh
+
+DIR=$HOME/$1/$(ls $HOME/$1 | dmenu -i -l 20 -fn "hack:14")
+cd $DIR
