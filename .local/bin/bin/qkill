@@ -1,9 +1,0 @@
-#!/bin/sh
-
-PROCESS="$(ps --user "$(id -u)" -F | \
-            dmenu -i -l 10 -p "Kill process:" "$@" | awk '{print $2" "$11}')";
-
-if [[ -n $PROCESS ]]; then
-    kill -9 "$(awk '{print $1}' <<< "$PROCESS")";
-fi
-
