@@ -17,8 +17,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 config.set('colors.webpage.darkmode.enabled',True)
 
 # Script bindings
-config.bind('v', 'hint links spawn ~/.local/bin/video_watch {hint-url}')
-config.bind('V',            'spawn ~/.local/bin/video_watch {url}')
+config.bind('v', 'hint links spawn video_watch {hint-url}')
+config.bind('V',            'spawn video_watch {url}')
 
 
 
