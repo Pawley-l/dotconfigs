@@ -1,0 +1,46 @@
+#!/bin/sh
+
+# Script to speed up the process of starting a new project
+NAME=$1
+TYPE=$(printf "%s\n" "cpp" "java" "go" "bash" "rust"| dmenu -i -l 20)
+LOCATION=$HOME"/.projects/"$NAME
+
+# Break if nothing
+if [ $# -le 0 ]; then
+    echo "Not enough paramaters!"
+    exit 1
+fi
+
+# Create a cpp project
+if [ $TYPE == "cpp" ]; then
+    mkdir -p $LOCATION
+    mkdir -p $LOCATION"/src"
+    mkdir -p $LOCATION"/include"
+
+    cp $HOME/.config/vim-snippets/skeleton.main.cmake $LOCATION/CmakeLists.txt
+    cp $HOME/.config/vim-snippets/skeleton.main.c $LOCATION/src/main.cpp
+fi
+
+# Create a Python Project
+
+# Create a C Project
+
+# Create a Rust Project
+
+# Create a C# Project
+
+# Create a Java Project
+
+# Create a Go Project
+
+# Create a Script
+if [ $TYPE == "bash" ]; then
+    LOCATION=$HOME/.config/scripts
+    touch $LOCATION/$NAME
+    echo '#!/bin/sh' >> $LOCATION/$NAME
+fi
+
+# ...
+
+# Project info
+echo $1" >>> "$LOCATION

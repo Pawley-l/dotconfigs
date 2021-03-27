@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo $(free | awk '/Mem/ {printf "%d MiB/%d MiB", $3/1024.0, $2/1024.0}')
