@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo $(free | awk '/Mem/ {printf "%dMB-%dMB", $3/1024, $2/1024}')
+echo $(free | awk '/Mem/ {printf "%dM/%dM", $3/1024, $2/1024}')
