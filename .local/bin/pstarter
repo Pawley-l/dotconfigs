@@ -1,9 +1,9 @@
 #!/bin/sh
 
 # Script to speed up the process of starting a new project
-NAME=$1
 TYPE=$(printf "%s\n" "cpp" "java" "go" "bash" "rust"| dmenu -i -l 20)
 LOCATION=$HOME"/.projects/"$NAME
+NAME=$1
 
 # Break if nothing
 if [ $# -le 0 ]; then
@@ -26,7 +26,11 @@ fi
 # Create a C Project
 
 # Create a Rust Project
-
+if [[ $TYPE == "rust" ]]; then
+    echo $NAME
+    cd $HOME"/.projects" 
+    cargo new $NAME
+fi
 # Create a C# Project
 
 # Create a Java Project
