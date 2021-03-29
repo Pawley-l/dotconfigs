@@ -129,9 +129,12 @@ autocmd FileType java nnoremap ,sbmodel :-1read $HOME/.config/vim-snippets/skele
 
 " rust
 " python
+autocmd FileType python nnoremap ,ma :-1read $HOME/.config/vim-snippets/skeleton.main.py<CR>i
+autocmd FileType python nnoremap ,cls :-1read $HOME/.config/vim-snippets/part.class.py<CR>i
 " go
 " ruby
 " sass, css
+" C#
 
 
 " Window Manipulation
