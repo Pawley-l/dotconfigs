@@ -166,6 +166,7 @@ noremap <leader>0 :tablast<cr>
 
 nnoremap <C-Left> :tabnext<CR>
 nnoremap <C-Right> :tabprev<CR>
+nnoremap <leader-space> :tabnext<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>k :tabclose<CR>
 
