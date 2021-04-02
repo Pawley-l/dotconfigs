@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-VIDEO="$(youtube-dl --print-json --skip-download --max-downloads 5 $1 | jq -r '(.playlist_index|tostring) + ": " + .fulltitle + "\n" + .webpage_url')"
+VIDEO="$(youtube-dl --print-json --skip-download --max-downloads 5 "ytsearch10: $1" | jq -r '(.playlist_index|tostring) + ": " + .fulltitle + "\n" + .webpage_url')"
 
 SEL="$(echo "$VIDEO" | awk 'NR % 2 == 1' | dmenu -i -l 20)"
 INDEX=$(echo "$SEL" | cut -f1 -d:)
