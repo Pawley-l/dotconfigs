@@ -1,7 +1,7 @@
 #!/bin/sh
 
 FILE=$HOME/thumb.png
-TEXT=$(dmenu)
+TEXT=$1
 import -window root -crop 1920x1080+1920+0 $FILE
 convert $FILE -blur 0x05 $FILE
 convert $FILE -set option:size %[w]x -fill white -background "#d35050" -font Anonymous-Pro \( label:"$TEXT" -virtual-pixel background -distort SRT "0.8 0" -virtual-pixel none -distort SRT "0.8 0" \) -gravity center -composite $FILE
